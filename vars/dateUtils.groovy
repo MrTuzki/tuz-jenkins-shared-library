@@ -12,3 +12,11 @@ def getDateTime(format="yyyy-MM-dd HH:mm:ss") {
 def getDate(format='yyyy-MM-dd') {
     return getDatetime(format)
 }
+
+/**
+* 获取时间戳, 精确到毫秒
+*/
+def getTimestamp() {
+    def now = new Date()
+    return now.getTime()
+}
