@@ -91,3 +91,15 @@ def isTag(tagName) {
         return false
     }
 }
+
+/**
+* 检查当前分支是否包含指定的 commit
+*/
+def isCurrentBranchContainsCommit(commitId) {
+    try {
+        sh(script: "git merge-base --is-ancestor ${commitId} HEAD")
+        return true
+    } catch(Exception e) {
+        return false
+    }
+}

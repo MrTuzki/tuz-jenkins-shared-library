@@ -1,3 +1,6 @@
+import io.jenkins.blueocean.rest.impl.pipeline.PipelineNodeGraphVisitor
+import io.jenkins.blueocean.rest.impl.pipeline.FlowNodeWrapper
+
 /**
 * 终止当前 build
 * @param reason: 终止原因
@@ -28,7 +31,7 @@ def Map<String, String> getStageResults() {
     return results
 }
 
-def isStageSucceed(String stageName) {
+def isStageSuccess(String stageName) {
     return getStageResults().get(stageName) == 'SUCCESS'
 }
 

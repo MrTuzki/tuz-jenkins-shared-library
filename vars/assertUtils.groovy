@@ -1,6 +1,8 @@
+import hudson.AbortException
+
 def assertTrue(condition, msg) {
     if (!condition) {
-        throw new Exception(msg)
+        throw new AbortException(msg)
     }
 }
 
