@@ -35,6 +35,7 @@ class XCI {
             ignoreFailure: ignoreFailure,
             timeout: timeout,
             retries: retries,
+            callback: callback,
             // 运行后设置
             startTime: 0,
             endTime: 0,
