@@ -24,6 +24,7 @@ class XCI {
         def ignoreFailure = stageConfigMap.get('ignoreFailure', false)
         def timeout = stageConfigMap.get('timeout', 0)
         def retries = stageConfigMap.get('retries', 0)
+        def callback = stageConfigMap.get('callback', { })
 
         xstages.add([
             name: stageName,
@@ -117,6 +118,12 @@ class XCI {
             }
         } finally {
             stage.endTime = new Date().getTime()
+            try {
+                stage.callback.call(stage)
+            } catch(e) {
+                // ignored
+                script.logger.warn("[${stage.name}] callback exec failed: ${e}")
+            }            
         }  
     }
 
